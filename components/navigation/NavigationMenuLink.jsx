@@ -10,7 +10,7 @@ export default function NavigationMenuLink({ title, menuLinks }) {
     return (
         <div className="flex">
             <Menu>
-                <Menu.Button className='flex items-center gap-1 hover:text-slate-600'>
+                <Menu.Button className='flex items-center gap-1 hover:text-slate-600 text-lg'>
                     {title}
                     <ChevronDownIcon className='h-4 w-4' />
                 </Menu.Button>

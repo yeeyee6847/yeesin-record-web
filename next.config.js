@@ -1,4 +1,19 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+module.exports = {
+    //output: 'export',
+    images: {
+        remotePatterns: [
+            toRemotePattern(process.env.GOOGLE_ACCOUNT_IMAGE_URL),
+        ],
+    },
+};
 
-module.exports = nextConfig
+function toRemotePattern(urlString) {
+    const url = new URL(urlString);
+    return {
+        protocol: url.protocol.replace(':', ''),
+        hostname: url.hostname,
+        port: url.port,
+        pathname: url.pathname,
+    }
+}

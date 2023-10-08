@@ -1,5 +1,8 @@
+'use client'
+import Auth from "./Auth";
 import NavigationLink from "./NavigationLink";
-import NavigationMenuLink from "./NavigaionMenuLink";
+import NavigationMenuLink from "./NavigationMenuLink";
+import { SessionProvider } from "next-auth/react";
 
 const { spendingMenuTitle, spendingMenuLinks } = {
     "spendingMenuTitle": "Spending",
@@ -37,20 +40,28 @@ const { maintenanceMenuTitle, maintenanceMenuLinks } = {
     ]
 };
 
-export default function NavigationBar() {
+export default function NavigationBar({ children }) {
     return (
-        <nav className="flex bg-slate-100 text-black px-2 py-1">
-            <NavigationLink href="/" className={"font-tiltPrism text-4xl pl-4 pr-10"}>Yeesin</NavigationLink>
+        <SessionProvider>
+            <nav className="flex bg-slate-100 text-black px-2 py-1 items-center">
+                <NavigationLink href="/" className={"font-tiltPrism text-4xl pl-4 pr-10"}>Yeesin</NavigationLink>
 
-            <ul className="flex gap-3 flex-wrap items-center text-lg">
-                <li>
-                    <NavigationMenuLink title={spendingMenuTitle} menuLinks={spendingMenuLinks} />
-                </li>
+                <ul className="flex gap-3 flex-wrap">
+                    <li>
+                        <NavigationMenuLink title={spendingMenuTitle} menuLinks={spendingMenuLinks} />
+                    </li>
 
-                <li>
-                    <NavigationMenuLink title={maintenanceMenuTitle} menuLinks={maintenanceMenuLinks} />
-                </li>
-            </ul>
-        </nav>
+                    <li>
+                        <NavigationMenuLink title={maintenanceMenuTitle} menuLinks={maintenanceMenuLinks} />
+                    </li>
+                </ul>
+
+                <div className="ml-auto mr-5">
+                    <Auth/>
+                </div>
+            </nav>
+
+            {children}
+        </SessionProvider>
     )
 }
