@@ -47,7 +47,6 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  usertype      String?
 }
 
 model VerificationToken {
@@ -56,4 +55,13 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+// For Admin
+model SpendingType {
+  id        Int      @id @default(autoincrement())
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  createdBy String
 }
