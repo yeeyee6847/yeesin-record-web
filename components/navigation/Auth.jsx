@@ -3,7 +3,6 @@ import Image from "next/image"
 
 export default function Auth() {
     const { data: session } = useSession()
-    console.log(session);
     if (session) {
         return (
             <>
