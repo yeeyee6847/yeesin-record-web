@@ -1,7 +1,7 @@
 'use client'
 import { Dialog, Transition } from "@headlessui/react"
-import Tooltip from "./Tooltip"
 import { Fragment } from "react";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 
 export default function Modal({ title, isModalOpen, onCloseModal, children, customClass }) {
 
@@ -32,7 +32,8 @@ export default function Modal({ title, isModalOpen, onCloseModal, children, cust
                     <Dialog.Panel className={`${customClass ? customClass : 'container fixed m-auto inset-0 border rounded bg-slate-900 h-2/4 px-3 py-2 sm:px-5 sm:py-3'}`}>
                         <div className='flex justify-between mb-3 sm:mb-5 pb-2 items-center border-b'>
                             <Dialog.Title className='text-xl sm:text-2xl'>{title}</Dialog.Title>
-                            <Tooltip action="closeModal" onClick={onCloseModal} />
+                            <XMarkIcon onClick={onCloseModal} id='closeModal'
+                                className='w-4 h-4 sm:w-5 sm:h-5 hover:text-slate-700 cursor-pointer'/>
                         </div>
                         {children}
                     </Dialog.Panel>

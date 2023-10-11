@@ -8,6 +8,8 @@ export default function SpendingTypeTable() {
 
     const [datas, setDatas] = useState([]);
 
+
+
     useEffect(() => {
         fetchData();
     }, []);
@@ -21,6 +23,8 @@ export default function SpendingTypeTable() {
     const afterModalAction = () => {
         fetchData();
     }
+
+    
 
     return (
         <div>

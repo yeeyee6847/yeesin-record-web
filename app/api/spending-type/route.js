@@ -2,15 +2,12 @@ import { createData, handlePrismaMethod, findAll } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
 export async function POST(req, res) {
+    const json = await req.json();
 
-    if (req.method === 'POST') {
-        const json = await req.json();
-
-        createData(json.value)
-
-    } else {
-        // Handle any other HTTP method
+    if (json.type === "create") {
+        
     }
+
 
     return NextResponse.json("");
 }

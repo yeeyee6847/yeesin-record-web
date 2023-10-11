@@ -29,3 +29,7 @@ body {
 body {
   color: white;
 }
+
+.btn-min-width {
+  min-width: 80px;
+}

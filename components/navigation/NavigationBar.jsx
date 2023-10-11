@@ -43,7 +43,7 @@ const { maintenanceMenuTitle, maintenanceMenuLinks } = {
 export default function NavigationBar({ children }) {
     return (
         <SessionProvider>
-            <nav className="flex bg-slate-100 text-black px-2 py-1 items-center">
+            <nav className="flex bg-slate-900 px-2 py-1 items-center">
                 <NavigationLink href="/" className={"font-tiltPrism text-4xl pl-4 pr-10"}>Yeesin</NavigationLink>
 
                 <ul className="flex gap-3 flex-wrap">
